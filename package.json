@@ -4,7 +4,7 @@
   "description": "WebGL based interface for visualising network scan results nicely",
   "main": "main.js",
   "scripts": {
-    "dev": "watchify main.js -o app.js -dv"
+    "dev": "watchify js/main.js -o app.js -dv"
   },
   "author": "Martin Naumann <martin@geekonaut.de>",
   "license": "ISC",

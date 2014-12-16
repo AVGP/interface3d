@@ -1,0 +1,39 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.187496374)
+
+newmtl w  birch
+Kd 0.737255 0.678431 0.501961
+Ka 0 0 0
+Ks 0.156863 0.156863 0.156863
+Ke 0 0 0
+d 1
+Ns 100
+illum 2
+
+newmtl Material.001
+Kd 0.498039 0.498039 0.498039
+Ka 0.498039 0.498039 0.498039
+Ks 1 1 1
+Ke 0 0 0
+d 1
+Ns 50
+illum 2
+
+newmtl Material.004
+Kd 0.337255 0.337255 0.337255
+Ka 0.337255 0.337255 0.337255
+Ks 1 1 1
+Ke 0 0 0
+d 1
+Ns 50
+illum 2
+
+newmtl Ceramiks 2
+Kd 0.968627 0.976471 0.992157
+Ka 0 0 0
+Ks 0.0862745 0.0862745 0.0862745
+Ke 0 0 0
+d 1
+Ns 100
+illum 2
+

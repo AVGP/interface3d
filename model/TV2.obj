@@ -1,7 +1,7 @@
 # File produced by Open Asset Import Library (http://www.assimp.sf.net)
 # (assimp v3.1.187496374)
 
-mtllib TV set N171213.obj.mtl
+mtllib TV2.mtl
 
 # 2140 vertex positions
 v  1.00104 0.187916 0.88682
@@ -8063,7 +8063,7 @@ f  1886//1 1703//1 1705//1829
 
 # Mesh 'Cube_0' with 512 faces
 g Cube_0
-usemtl Ceramiks 2
+usemtl Ceramiks
 f  1916//1830 624//1831 623//1832
 f  1916//1830 623//1832 625//1833
 f  1917//1834 1918//1835 1916//1830
@@ -8576,4 +8576,3 @@ f  2114//2073 2115//2074 2140//2111
 f  667//2118 2114//2073 668//2117
 f  667//2118 2108//2067 2114//2073
 f  666//2066 2108//2067 667//2118
-

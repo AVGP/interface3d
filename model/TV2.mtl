@@ -12,6 +12,7 @@ illum 2
 
 newmtl Material.001
 Kd 0.498039 0.498039 0.498039
+#Kd 1 0 1
 Ka 0.498039 0.498039 0.498039
 Ks 1 1 1
 Ke 0 0 0
@@ -20,6 +21,7 @@ Ns 50
 illum 2
 
 newmtl Material.004
+#Kd 1.000000 0.000000 0.000000
 Kd 0.337255 0.337255 0.337255
 Ka 0.337255 0.337255 0.337255
 Ks 1 1 1
@@ -28,12 +30,13 @@ d 1
 Ns 50
 illum 2
 
-newmtl Ceramiks 2
-Kd 0.968627 0.976471 0.992157
+newmtl Ceramiks
+map_kd Texture/Metaloxm.jpg
+#Kd 1 0 0
+#Kd 0.968627 0.976471 0.992157
 Ka 0 0 0
 Ks 0.0862745 0.0862745 0.0862745
 Ke 0 0 0
 d 1
 Ns 100
 illum 2
-

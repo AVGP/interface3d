@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "dev": "watchify js/main.js -o app.js -dv",
-    "build": "browserify js/main.js | uglifyjs -mc -o app.js"
+    "build": "browserify js/main.js | uglifyjs -mc > app.js"
   },
   "author": "Martin Naumann <martin@geekonaut.de>",
   "license": "ISC",
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "browserify": "^7.0.1",
-    "uglifyjs": "^2.3.6",
+    "uglify-js": "^2.4.16",
     "watchify": "^2.2.1"
   }
 }

@@ -14,8 +14,9 @@ module.exports = (function() {
     hammertime.get('pinch').set({ enable: true });
 
     hammertime.on('pan', function(e) {
-      var turnY = Math.PI * 0.05 * (e.deltaX / window.innerWidth),
-          turnX = Math.PI * 0.05 * (e.deltaY / window.innerHeight);
+      var factor = e.pointerType === 'mouse' ? 0.01 : 0.05;
+      var turnY = Math.PI * factor * (e.deltaX / window.innerWidth),
+          turnX = Math.PI * factor * (e.deltaY / window.innerHeight);
 
       if(camAnchor) {
         camAnchor.rotation.y += turnY;
@@ -28,13 +29,19 @@ module.exports = (function() {
       swingY = turnY;
 
       wasMoved = true;
+      e.stopPropagation();
+      if(e.preventDefault) e.preventDefault();
     });
+
 
     hammertime.on('pinchmove', function(e) {
       if(e.scale >= 1.0 && camera.position.z <= minZ) return;
 
       camera.translateZ(1 - e.scale / 2);
       wasMoved = true;
+
+      e.stopPropagation();
+      if(e.preventDefault) e.preventDefault();
     });
 
     window.addEventListener('wheel', function(e) {
@@ -44,7 +51,10 @@ module.exports = (function() {
         camera.translateZ(-1 * Math.max(-5, Math.min(e.deltaY, 5)));
       }
       wasMoved = true;
-    })
+
+      e.stopPropagation();
+      e.preventDefault();
+    });
   };
 
   instance.update = function() {

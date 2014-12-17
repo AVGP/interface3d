@@ -14,8 +14,8 @@ module.exports = (function() {
     hammertime.get('pinch').set({ enable: true });
 
     hammertime.on('pan', function(e) {
-      var turnY = Math.PI * 0.02 * (e.deltaX / window.innerWidth),
-          turnX = Math.PI * 0.02 * (e.deltaY / window.innerHeight);
+      var turnY = Math.PI * 0.05 * (e.deltaX / window.innerWidth),
+          turnX = Math.PI * 0.05 * (e.deltaY / window.innerHeight);
 
       if(camAnchor) {
         camAnchor.rotation.y += turnY;
@@ -39,9 +39,9 @@ module.exports = (function() {
 
     window.addEventListener('wheel', function(e) {
       if(e.wheelDelta) { // Chrome
-        camera.position.z -= e.wheelDelta / 120;
+        camera.translateZ(-(e.wheelDelta / 120));
       } else { // IE / Firefox
-        camera.position.z -= Math.min(-5, Math.max(e.deltaY, 5));
+        camera.translateZ(-1 * Math.max(-5, Math.min(e.deltaY, 5)));
       }
       wasMoved = true;
     })

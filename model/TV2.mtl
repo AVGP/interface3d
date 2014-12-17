@@ -31,9 +31,7 @@ Ns 50
 illum 2
 
 newmtl Ceramiks
-map_kd Texture/Metaloxm.jpg
-#Kd 1 0 0
-#Kd 0.968627 0.976471 0.992157
+Kd 0.968627 0.976471 0.992157
 Ka 0 0 0
 Ks 0.0862745 0.0862745 0.0862745
 Ke 0 0 0

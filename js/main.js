@@ -14,11 +14,21 @@ World.startRenderLoop();
 
 var loader = new ObjLoader(), mesh, anchor, cam = World.getCamera();
 
+var screen = new THREE.Mesh(
+  new THREE.CubeGeometry(0.5, 2.2, 2.2),
+  new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture("fuckyea.png") })
+);
+screen.position.set(0.7, 1.2, 0);
+
 anchor = new THREE.Object3D();
 
 loader.load('model/TV2.obj', 'model/TV2.mtl', function(tv) {
   tv.rotation.set(0, -Math.PI/2, 0);
   tv.scale.set(18, 18, 18);
+  tv.children[8].material.opacity = 0.25;
+  tv.children[8].material.transparent = true;
+  tv.children[8].material.needsUpdate = true;
+  tv.add(screen);
 
   for(var side=0; side<4; side++) {
     var sideAnchor = new THREE.Object3D();
@@ -30,6 +40,8 @@ loader.load('model/TV2.obj', 'model/TV2.mtl', function(tv) {
     sideAnchor.rotation.y = side * (Math.PI/2);
     anchor.add(sideAnchor);
   }
+  World.add(tv);
+  window.tv = tv;
   Loading.stop();
 
 });

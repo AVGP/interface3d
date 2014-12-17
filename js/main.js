@@ -1,21 +1,21 @@
 var THREE = require('three'),
     World = require('three-world'),
     ObjLoader = require('./OBJMTLLoader'),
-    Loading = require('./loading');
+    Loading = require('./loading'),
+    Controls = require('./kinetic-controls');
 
 Loading.start(document.getElementById("loading"));
 
-function onRendered() {
-  if(cam) cam.rotation.y += 0.005;
-}
-
-World.init({ camDistance: 0, renderCallback: onRendered, clearColor: 0xffffff });
+World.init({ camDistance: 0, clearColor: 0xffffff });
 World.startRenderLoop();
+Controls.init(World.getCamera());
 
 var loader = new ObjLoader(), mesh, anchor, cam = World.getCamera();
 
+cam.rotation.order = 'YXZ';
+
 var screen = new THREE.Mesh(
-  new THREE.CubeGeometry(0.5, 2.2, 2.2),
+  new THREE.BoxGeometry(0.5, 2.2, 2.2),
   new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture("fuckyea.png") })
 );
 screen.position.set(0.7, 1.2, 0);
@@ -40,8 +40,6 @@ loader.load('model/TV2.obj', 'model/TV2.mtl', function(tv) {
     sideAnchor.rotation.y = side * (Math.PI/2);
     anchor.add(sideAnchor);
   }
-  World.add(tv);
-  window.tv = tv;
   Loading.stop();
 
 });
